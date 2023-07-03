@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
+</head>
+<body>
+    <h1>키워드대결 !!</h1>
+
+    <form action="/" method="get">
+        <label for="">첫번째 키워드</label>
+        <input type="text" name="keyword1">
+        <label for="">두번째 키워드</label>
+        <input type="text" name="keyword2">
+        <button type="submit">검색</button>
+    </form>
+
+    {% if errorMsg %}
+    <div id="err_message">
+        <br>
+        서로 키워드 대결할 첫번째 키워드와 두번째 키워드를 모두 입력해 주세요!!  
+    </div>
+    {% endif %}
+
+    {% if data %}
+    <div id="visual_result">
+        {% for k,v in data.items() %}<div class="bar bar{{loop.index}}" value={{v}}>{{k}}({{v}})</div>{% endfor %}
+    </div>
+    {% endif %}
+
+    <script>
+        function draw_bar(){
+            var bars = document.querySelectorAll('.bar');
+            //console.log(bars)
+
+            var total = 0;
+            
+            for (i=0; i<bars.length; i++){
+                total += parseInt(bars[i].getAttribute('value'));
+            }
+            console.log('total: ',total);
+
+            for (i=0; i<bars.length; i++){
+                w = bars[i].getAttribute('value');
+                //console.log(w); 
+                bars[i].style.width = (parseInt(w)/total)*100 + '%';
+            }
+        }
+        setTimeout(draw_bar, 1000);
+
+    </script>
+</body>
+
+</html>

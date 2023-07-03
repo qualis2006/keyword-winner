@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>키워드대결 !!</h1>
+    {% if data %}
+        {{data}}
+    {% endif %}
+    
+    <form action="/" method="get">
+        <label for="">첫번째 키워드</label>
+        <input type="text" name="keyword1">
+        <label for="">두번째 키워드</label>
+        <input type="text" name="keyword2">
+        <button type="submit">검색</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+.bar{
+    height: 200px;
+    width: 50%;
+    border: 5px solid black;
+    border-radius: 5px;
+    display:inline-block;
+    box-sizing: border-box;
+    color: white;
+    transition: 1s;
+}
+
+.bar1{
+    background-color: orangered;
+}
+
+.bar2  {
+    background-color: blue;
+}
+
+#visual_result{
+    margin-top: 20px;
+}
+
+#err_message{
+    color: red;
+}
